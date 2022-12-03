@@ -27,20 +27,10 @@ if __name__ == "__main__":
 
     match_list = load_input('data.txt')
 
-    ### TASK 1 ###
-    task_num = 1
-    points_mapping = map_points(task_num, **define_points())
-
-    total_score = 0
-    for match in match_list:
-        total_score += points_mapping[match]
-    print(f'The total score in task {task_num} is {total_score}')
-
-    ### TASK 2 ###
-    task_num = 2
-    points_mapping = map_points(task_num, **define_points())
-
-    total_score = 0
-    for match in match_list:
-        total_score += points_mapping[match]
-    print(f'The total score in task {task_num} is {total_score}')
+    ### TASK 1 & 2 ###
+    for task_num in range(1,3):
+        points_mapping = map_points(task_num, **define_points())
+        total_score = 0
+        for match in match_list:
+            total_score += points_mapping[match]
+        print(f'The total score in task {task_num} is {total_score}')
