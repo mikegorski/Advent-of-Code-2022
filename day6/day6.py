@@ -4,13 +4,10 @@ def load_input(filename):
     return input[0]
 
 def detect_marker(datastream, marker_length):
-    for pos, char in enumerate(datastream):
-        potential_marker = datastream[pos:pos + marker_length]
-        count_sum = 0
-        for char in potential_marker:
-            count_sum += potential_marker.count(char)
-        if count_sum == marker_length:
-            pos_marker = pos + marker_length
+    for index in range(len(datastream) - marker_length + 1):
+        potential_marker = set(datastream[index:index + marker_length])
+        if len(potential_marker) == marker_length:
+            pos_marker = index + marker_length
             return pos_marker
 
 
